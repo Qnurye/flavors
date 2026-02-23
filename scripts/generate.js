@@ -186,6 +186,7 @@ const VARIANTS = {
 
 const template = await readFile(join(__dirname, "./template.toml"), "utf8")
 const readme = await readFile(join(__dirname, "./README.md"), "utf8")
+const license = await readFile(join(__dirname, "../LICENSE"), "utf8")
 
 for (const [name, colors] of Object.entries(VARIANTS)) {
 	const lowerName = name.toLowerCase().replaceAll(" ", "-")
@@ -217,4 +218,7 @@ for (const [name, colors] of Object.entries(VARIANTS)) {
 
 	// LICENSE-tmtheme
 	await writeFile(join(wd, "LICENSE-tmtheme"), await fetch(colors._tmthemeLicense).then(r => r.text()))
+
+	// LICENSE
+	await writeFile(join(wd, "LICENSE"), license)
 }
