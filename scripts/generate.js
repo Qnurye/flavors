@@ -131,13 +131,64 @@ const VARIANTS = {
 		_tmtheme: "https://raw.githubusercontent.com/catppuccin/bat/refs/heads/main/themes/Catppuccin%20Frappe.tmTheme",
 		_tmthemeLicense: "https://raw.githubusercontent.com/catppuccin/bat/refs/heads/main/LICENSE",
 	},
+	"Atom One Dark": {
+		text: "#abb2bf",
+		background: "#282c34",
+
+		primary: "#61afef",
+		secondary: "#56b6c2",
+		tertiary: "#d19a66",
+		accent: "#c678dd",
+
+		surface: "#353b45",
+		surface1: "#3e4451",
+		surface2: "#4b5263",
+
+		onSurface: "#5c6370",
+		onSurface1: "#636d83",
+		onSurface2: "#828997",
+
+		red: "#e06c75",
+		green: "#98c379",
+		blue: "#61afef",
+		yellow: "#e5c07b",
+
+		_tmtheme: "https://raw.githubusercontent.com/sonph/onehalf/refs/heads/master/sublimetext/OneHalfDark.tmTheme",
+		_tmthemeLicense: "https://raw.githubusercontent.com/sonph/onehalf/refs/heads/master/LICENSE.txt",
+	},
+	"Atom One Light": {
+		text: "#383a42",
+		background: "#fafafa",
+
+		primary: "#4078f2",
+		secondary: "#0184bc",
+		tertiary: "#b76b01",
+		accent: "#a626a4",
+
+		surface: "#eaeaeb",
+		surface1: "#e5e5e6",
+		surface2: "#dbdbdc",
+
+		onSurface: "#a0a1a7",
+		onSurface1: "#9d9d9f",
+		onSurface2: "#696c77",
+
+		red: "#e45649",
+		green: "#50a14f",
+		blue: "#4078f2",
+		yellow: "#cb7701",
+
+		_light: true,
+		_tmtheme: "https://raw.githubusercontent.com/sonph/onehalf/refs/heads/master/sublimetext/OneHalfLight.tmTheme",
+		_tmthemeLicense: "https://raw.githubusercontent.com/sonph/onehalf/refs/heads/master/LICENSE.txt",
+	},
 }
 
 const template = await readFile(join(__dirname, "./template.toml"), "utf8")
 const readme = await readFile(join(__dirname, "./README.md"), "utf8")
 
 for (const [name, colors] of Object.entries(VARIANTS)) {
-	const lowerName = name.toLowerCase().replace(" ", "-")
+	const lowerName = name.toLowerCase().replaceAll(" ", "-")
 	const wd = join(__dirname, `../${lowerName}.yazi`)
 	try {
 		await access(wd)
